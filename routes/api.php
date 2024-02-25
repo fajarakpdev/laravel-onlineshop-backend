@@ -20,3 +20,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // register
 Route::post('/register', [App\Http\Controllers\Api\AuthController::class, 'register']);
+
+//logout
+Route::post('/logout', [App\Http\Controllers\Api\AuthController::class, 'logout'])->middleware('auth:sanctum');
+
+//login
+Route::post('/login', [App\Http\Controllers\Api\AuthController::class, 'login']);
+
+//get categories
+Route::get('/categories', [App\Http\Controllers\Api\CategoryController::class, 'index']);
+
+//get product
+Route::get('/products', [App\Http\Controllers\Api\ProductController::class, 'index']);
